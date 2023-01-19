@@ -49,20 +49,22 @@ links.map(link=>{link.style.background="rgba(0,0,0,0)"});
  let initialContact = (currentPage*10)-10;
  let lastContact= currentPage*10; 
  list.innerHTML= null;
- for(i=initialContact;i<lastContact;i++){
-    let name = users[i].name;
-    let email = name.replaceAll(" ", ".");
-     list.innerHTML += `<li class="contact-item cf">
-     <div class="contact-details">
-         <img class="avatar" src="${users[i].image}"< />
-         <h3>${users[i].name}</h3>
-         <span class="email">${email}@example.com</span>
-     </div>
-     <div class="joined-details">
-            <span class="date">Joined ${users[i].joined}</span>
-    </div>
- </li>`
- }
+for(i=initialContact;i<lastContact;i++){
+   if (users[i]!= undefined){
+       let name = users[i].name;
+       let email = name.replaceAll(" ", ".");
+        list.innerHTML += `<li class="contact-item cf">
+        <div class="contact-details">
+            <img class="avatar" src="${users[i].image}"< />
+            <h3>${users[i].name}</h3>
+            <span class="email">${email}@example.com</span>
+        </div>
+        <div class="joined-details">
+               <span class="date">Joined ${users[i].joined}</span>
+       </div>
+    </li>`
+   }
+}
  this.style.background="rgb(30,144,255)";
 
 }
